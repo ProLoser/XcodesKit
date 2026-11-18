@@ -80,7 +80,7 @@ extension Process {
         }
         
         do {
-            Logger.subprocess.info("Process.run executable: \(executable), input: \(input ?? ""), arguments: \(arguments.joined(separator: ", "))")
+            Logger.subprocess.info("Process.run executable: \(executable), arguments: \(arguments.joined(separator: ", "))")
 
             try process.run()
             process.waitUntilExit()
@@ -120,7 +120,7 @@ extension Process {
             inputPipe.fileHandleForWriting.closeFile()
         }
 
-        Logger.subprocess.info("Process.run executable: \(executable), input: \(input ?? ""), arguments: \(arguments.joined(separator: ", "))")
+        Logger.subprocess.info("Process.run executable: \(executable), arguments: \(arguments.joined(separator: ", "))")
 
         let runner = AsyncProcessRunner(process: process, stdout: stdout, stderr: stderr)
         return try await withTaskCancellationHandler {
